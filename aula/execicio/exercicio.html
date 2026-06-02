@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="Script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body on load="bemVindo()">
+
+    <header>
+        <H1 id="titulo">Seu Pokémon ideal</H1>
+    </header>
+
+    <Section class="Formulario">
+        <form id="meuForm">
+
+            <div id="meuPokemon"> meu Pokemon</div>
+
+            <label for="nomePokemon">Nome Pokémon</label>
+
+            <input type="text" id="nomePokemon" placeholder="Nome do seu Pokémon">
+
+            <textarea id="descricaoPokemon" placeholder="Descreva seu Pokémon"></textarea>
+
+
+            <select name="tipagem" id="tipagem">
+                <option value="fogo">Fogo</option>
+                <option value="água">Água</option>
+                <option value="grama">Grama</option>
+                <option value="eletrico">Eletrico</option>
+                <option value="Gelo">Gelo</option>
+                <option value="normal">Normal</option>
+                <option value="Inseto">Inseto</option>
+                <option value="psiquico">Psiquico</option>
+                <option value="fantasma">Fantasma</option>
+                <option value="sombrio">Sombrio</option>
+                <option value="fada">Fada</option>
+                <option value="aço">aço</option>
+                <option value="terrestre">Terrestre</option>
+                <option value="voador">Voador</option>
+                <option value="lutador">Lutador</option>
+            </select>
+
+            <button id="enviar">ENVIAR</button>
+            <button id="limpar">LIMPAR</button>
+
+        </form>
+
+    </Section>
+
+</body>
+
+</html>
