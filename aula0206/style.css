@@ -1,0 +1,79 @@
+.caixa {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(131, 131, 206);
+    position: absolute;
+    left: 0;
+    border-radius: 16px;
+}
+
+.meu-botao {
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 5rem;
+    background-color: rgb(112, 231, 196);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    border-radius: 8px;
+}
+
+.sei-la {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+.caixa3 {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(243, 151, 151);
+    position: absolute;
+    left: 0;
+    top: 100px;
+    border-radius: 16px;
+}
+
+.caixa4 {
+    width: 200px;
+    padding: 20px;
+    background-color: lightblue;
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.sei-la2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.caixa1 {
+    margin-top: 20px;
+    width: 200px;
+    padding: 20px;
+    background-color: lightgray;
+    border: 2px solid gray;
+    font-family: sans-serif;
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.ativo {
+    background-color: lightgreen;
+    border-color: green;
+    font-weight: bold;
+}
+
+.destaque {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Formulários</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Smooch+Sans:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kurale&family=Smooch+Sans:wght@100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Cadastro de Usuário</h1>
+
+        <form id="formulario">
+
+            <div class="campo">
+                <label for="nome">Nome *</label>
+                <div class="input-container">
+                    <input type="text" id="nome" placeholder="Nome do Paciente">
+                    <span class="icone"></span>
+                </div>
+                <small class="erro"></small>
+            </div>
+
+            <div class="campo">
+                <label for="email">E-mail *</label>
+                <div class="input-container">
+                    <input type="text" id="email" placeholder="email@gmail.com">
+                    <span class="icone"></span>
+                </div>
+                <small class="erro"></small>
+            </div>
+
+            <div class="campo">
+                <label for="telefone">Telefone *</label>
+                <div class="input-container">
+                    <input type="text" id="telefone" placeholder="(11) 99999-9999">
+                    <span class="icone"></span>
+                </div>
+                <small class="erro"></small>
+            </div>
+
+            <div class="campo">
+                <label for="cpf">CPF *</label>
+                <div class="input-container">
+                    <input type="text" id="cpf" placeholder="000.000.000-00">
+                    <span class="icone"></span>
+                </div>
+                <small class="erro"></small>
+            </div>
+
+            <div class="campo">
+                <label for="RG">RG *</label>
+                <div class="input-container">
+                    <input type="text" id="RG" placeholder="00.000.000-0">
+                    <span class="icone"></span>
+                </div>
+                <small class="erro"></small>
+            </div>
+
+            <div class="campo">
+                <label for="OE">Orgão Expedidor *</label>
+                <div class="input-container">
+                    <input type="text" id="OE" placeholder="Orgão Expedidor">
+                    <span class="icone"></span>
+                </div>
+                <small class="erro"></small>
+            </div>
+
+            <div class="campo">
+                <label for="senha">Senha *</label>
+                <div class="input-container">
+                    <input type="password" id="senha" placeholder="Nova Senha">
+                    <span class="icone"></span>
+                </div>
+                <small class="erro"></small>
+            </div>
+
+            <div class="campo">
+                <label for="confirmarSenha">Confirmar Senha *</label>
+                <div class="input-container">
+                    <input type="password" id="confirmarSenha" placeholder="Confirmar Senha">
+                    <span class="icone"></span>
+                </div>
+                <small class="erro"></small>
+            </div>
+
+
+
+            <button type="submit">Enviar</button>
+
+        </form>
+
+        <p id="mensagemSucesso"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
