@@ -97,6 +97,60 @@
                 <small class="erro"></small>
             </div>
 
+            <div class="campo">
+                <label for="Estado">Estado *</label>
+                <input type="text" id="campoBusca" placeholder="Selecione o Estado">
+
+                <ul id="listaEstados" class="oculto">
+                    <li class="Estado">Acre</li>
+                    <li class="Estado">Alagoas</li>
+                    <li class="Estado">Amapá</li>
+                    <li class="Estado">Amazonas</li>
+                    <li class="Estado">Bahia</li>
+                    <li class="Estado">Ceará</li>
+                    <li class="Estado">Distrito Federal</li>
+                    <li class="Estado">Espírito Santo</li>
+                    <li class="Estado">Goiás</li>
+                    <li class="Estado">Maranhão</li>
+                    <li class="Estado">Mato Grosso</li>
+                    <li class="Estado">Mato Grosso do Sul</li>
+                    <li class="Estado">Minas Gerais</li>
+                    <li class="Estado">Pará</li>
+                    <li class="Estado">Piauí</li>
+                    <li class="Estado">Rio de Janeiro</li>
+                    <li class="Estado">Rio Grande do Norte</li>
+                    <li class="Estado">Rio Grande do Sul</li>
+                    <li class="Estado">Rondônia</li>
+                    <li class="Estado">Roraima</li>
+                    <li class="Estado">Santa Catarina</li>
+                    <li class="Estado">São Paulo</li>
+                    <li class="Estado">Sergipe</li>
+                    <li class="Estado">Tocantins</li>
+
+                </ul>
+                <small class="erro"></small>
+            </div>
+
+            <div class="campo">
+                <label for="Cidade">Cidade *</label>
+                <div class="input-container">
+                    <input type="text" id="Cidade" placeholder="Cidade Natal">
+                    <span class="icone"></span>
+                </div>
+                <small class="erro"></small>
+            </div>
+
+            <div class="controles">
+
+                <label for="PossuiFilhos">Possui Filhos *</label>
+
+                <button class="botao-filhos" onclick="ativarBotao()">Sim</button>
+                <button class="botao-filhos" onclick="desativarBotao()">Não</button>
+                <input type="hidden" id="possuiFilhos" value="">
+                <small class="erro"></small>
+
+            </div>
+
 
 
             <button type="submit">Enviar</button>

@@ -1,0 +1,116 @@
+#meuElemento {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: white;
+    transition: 0.3s;
+}
+
+/* Cores e estilos para cada estado */
+.estado-inicial {
+    background-color: gray;
+}
+
+.estado-vermelho {
+    background-color: #ff4d4d;
+}
+
+.estado-verde {
+    background-color: #4CAF50;
+}
+
+/* Oculta todas as mensagens por padrão */
+.mensagem {
+    display: none;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+}
+
+/* Classe que será ativada pelo JavaScript para mostrar a mensagem */
+.visivel {
+    display: block !important;
+}
+
+/* Estilo base do botão */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+/* Estilo do botão quando está DESABILITADO */
+button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Estilo dos botões de controle */
+.controles {
+    margin-top: 20px;
+}
+
+.controles button {
+    background-color: #28a745;
+    margin-right: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+#campoBusca {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#listaProdutos {
+    list-style-type: none;
+    padding: 0;
+}
+
+#listaProdutos li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+#listaProdutos li:hover {
+    background-color: #f9f9f9;
+}
+
+/* Esta classe será usada pelo JavaScript para esconder os itens */
+.oculto {
+    display: none !important;
+}

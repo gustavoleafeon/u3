@@ -8,6 +8,8 @@ const senha = document.getElementById("senha");
 const confirmarSenha = document.getElementById("confirmarSenha");
 const RG = document.getElementById("RG");
 const OE = document.getElementById("OE");
+const cidade = document.getElementById("Cidade");
+const possuiFilhosInput = document.getElementById("possuiFilhos");
 const mensagemSucesso = document.getElementById("mensagemSucesso");
 
 formulario.addEventListener("submit", function(e) {
@@ -44,6 +46,19 @@ formulario.addEventListener("submit", function(e) {
     }
 
     if (!validarConfirmarSenha()) {
+        valido = false;
+    }
+
+    // novas validações: Estado, Cidade e PossuiFilhos
+    if (!validarEstado()) {
+        valido = false;
+    }
+
+    if (!validarCidade()) {
+        valido = false;
+    }
+
+    if (!validarPossuiFilhos()) {
         valido = false;
     }
 
@@ -212,5 +227,160 @@ function validarConfirmarSenha() {
     }
 
     mostrarSucesso(confirmarSenha);
+    return true;
+}
+
+// Pega o input de busca e a lista de produtos
+const campoBusca = document.getElementById('campoBusca');
+const listaProdutos = document.getElementById('listaEstados');
+const Estados = listaProdutos.getElementsByClassName('Estado');
+ 
+// Adiciona um evento que dispara sempre que algo é digitado
+campoBusca.addEventListener('input', function() {
+    // Pega o valor digitado e passa para minúsculo para evitar problemas de capitalização
+    const textoDigitado = campoBusca.value.toLowerCase();
+ 
+    // Percorre todos os produtos da lista
+    for (let i = 0; i < Estados.length; i++) {
+        const Estado = Estados[i];
+        const textoEstado = Estado.textContent.toLowerCase();
+ 
+        // Verifica se o texto digitado existe dentro do nome do produto
+        if (textoEstado.includes(textoDigitado)) {
+            // Remove a classe oculto para mostrar o produto
+            Estado.classList.remove('oculto');
+        } else {
+            // Adiciona a classe oculto para esconder o produto
+            Estado.classList.add('oculto');
+        }
+    }
+});
+
+// Mostrar a lista ao focar ou clicar no campo de busca
+campoBusca.addEventListener('focus', () => listaProdutos.classList.remove('oculto'));
+campoBusca.addEventListener('click', (e) => { listaProdutos.classList.remove('oculto'); e.stopPropagation(); });
+
+// Evita que cliques dentro da lista fechem ela imediatamente
+listaProdutos.addEventListener('click', (e) => e.stopPropagation());
+
+// Fecha a lista ao clicar fora
+document.addEventListener('click', (e) => {
+    if (!campoBusca.contains(e.target) && !listaProdutos.contains(e.target)) {
+        listaProdutos.classList.add('oculto');
+    }
+});
+
+// Selecionar item da lista: preenche o campo e fecha a lista
+for (let i = 0; i < Estados.length; i++) {
+    Estados[i].addEventListener('click', function () {
+        campoBusca.value = this.textContent.trim();
+        // restaura visibilidade padrão (remove ocultos para próxima abertura)
+        for (let j = 0; j < Estados.length; j++) Estados[j].classList.remove('oculto');
+        listaProdutos.classList.add('oculto');
+        // marca como sucesso o container do Estado
+        try {
+            const containerEstado = campoBusca.parentElement;
+            mostrarSucessoContainer(containerEstado);
+        } catch (e) {
+            // silencioso se algo inesperado acontecer
+            console.warn('Erro ao marcar sucesso do Estado:', e);
+        }
+    });
+}
+
+function desativarBotao() {
+    const botoes = document.querySelectorAll('.botao-filhos');
+    if (botoes.length >= 2) {
+        // 'Não' button is the second
+        botoes[0].disabled = false; // Sim volta ao normal
+        botoes[1].disabled = true;  // Não fica desabilitado
+    }
+    // marca campo oculto
+    if (possuiFilhosInput) {
+        possuiFilhosInput.value = 'nao';
+        const container = document.querySelector('.controles');
+        mostrarSucessoContainer(container);
+    }
+    console.log('Botão "Não" desabilitado, "Sim" habilitado');
+}
+ 
+function ativarBotao() {
+    const botoes = document.querySelectorAll('.botao-filhos');
+    if (botoes.length >= 2) {
+        // 'Sim' button is the first
+        botoes[0].disabled = true;  // Sim fica desabilitado
+        botoes[1].disabled = false; // Não volta ao normal
+    }
+    // marca campo oculto
+    if (possuiFilhosInput) {
+        possuiFilhosInput.value = 'sim';
+        const container = document.querySelector('.controles');
+        mostrarSucessoContainer(container);
+    }
+    console.log('Botão "Sim" desabilitado, "Não" habilitado');
+}
+
+// valida Estado (campoBusca) - verifica não vazio e corresponde a uma opção da lista
+function validarEstado() {
+    const valor = campoBusca.value.trim();
+    const container = campoBusca.parentElement; // .campo
+    if (valor === "") {
+        mostrarErroContainer(container, "Estado é obrigatório");
+        return false;
+    }
+
+    // verifica se corresponde exatamente a um dos itens
+    let encontrado = false;
+    for (let i = 0; i < Estados.length; i++) {
+        if (Estados[i].textContent.trim().toLowerCase() === valor.toLowerCase()) {
+            encontrado = true;
+            break;
+        }
+    }
+
+    if (!encontrado) {
+        mostrarErroContainer(container, "Escolha um Estado válido da lista");
+        return false;
+    }
+
+    mostrarSucessoContainer(container);
+    return true;
+}
+
+// valida Cidade (Cidade input não vazio)
+function validarCidade() {
+    const container = cidade.parentElement;
+    if (cidade.value.trim() === "") {
+        mostrarErroContainer(container, "Cidade é obrigatória");
+        return false;
+    }
+    mostrarSucessoContainer(container);
+    return true;
+}
+
+// helper para mostrar erro em container específico (usa .erro dentro do container)
+function mostrarErroContainer(container, mensagem) {
+    container.classList.remove('sucesso');
+    container.classList.add('falha');
+    const small = container.querySelector('.erro');
+    if (small) small.textContent = mensagem;
+}
+
+function mostrarSucessoContainer(container) {
+    container.classList.remove('falha');
+    container.classList.add('sucesso');
+    const small = container.querySelector('.erro');
+    if (small) small.textContent = '';
+}
+
+// valida PossuiFilhos (verifica valor do campo oculto)
+function validarPossuiFilhos() {
+    const container = document.querySelector('.controles');
+    const valor = possuiFilhosInput.value.trim().toLowerCase();
+    if (valor !== 'sim' && valor !== 'nao') {
+        mostrarErroContainer(container, 'Por favor selecione se possui filhos');
+        return false;
+    }
+    mostrarSucessoContainer(container);
     return true;
 }

@@ -111,3 +111,65 @@ button:hover {
     font-weight: bold;
     color: green;
 }
+
+#campoBusca {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#listaEstados {
+    list-style-type: none;
+    padding: 0;
+}
+
+#listaEstados li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+#listaEstados li:hover {
+    background-color: #f9f9f9;
+}
+
+/* Esta classe será usada pelo JavaScript para esconder os itens */
+.oculto {
+    display: none !important;
+}
+
+.botao-filhos {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 8px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    margin-right: 10px;
+    background: #7675C6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    min-width: 56px;
+    max-width: 90px;
+    width: auto;
+}
+
+.controles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    /* espaço entre os botões de opção e o botão Enviar */
+}
+
+.botao-filhos:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
