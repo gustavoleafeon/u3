@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Pedidos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <H1>🍕sistema de Pedidos</H1>
+        </header>
+
+        <section class="card">
+
+            <H2>📋Cardapio</H2>
+            <div class="menu">
+                <div class="item">
+                    <h3>🍕Pizza</h3>
+                    <div class="preco">R$ 45,90</div>
+                    <button onclick="addItem('Pizza', 45.90)"></button>
+                    <div class="item">
+                        <h3>🍔Hamburguer</h3>
+                        <div class="preco">R$ 32,50</div>
+                        <button onclick="addItem('Hamburguer', 32.50)"></button>
+                    </div>
+                    <div class="item">
+                        <h3>🥤Refrigerente</h3>
+                        <div class="preco">R$ 8,00</div>
+                        <button onclick="addItem('🥤Refrigerente', 8.00)"></button>
+                    </div>
+                    <div class="item">
+                        <h3>🍰Sobremesa</h3>
+                        <div class="preco">R$ 15,00</div>
+                        <button onclick="addItem('Sobremesa', 15.00)"></button>
+                    </div>
+                </div>
+
+        </section>
+
+        <section class="card">
+            <H2>🛒Carrinho</H2>
+            <div id="carrinho"></div>
+            <div class="total">Total: <Span id="total">R$ 0,00</Span></div>
+            <div class="acoes">
+                <button onclick="aplicarDesconto()">🎟️Desconto</button>
+                <button class="btn-finalizar" onclick="finalizar()">✅Finalizar</button>
+                <button class="btn-limpar" onclick="Limpar()">🧹Limpar</button>
+            </div>
+
+        </section>
+
+        <section class="card">
+            <H2>💳Pagamento</H2>
+            <select id="pagamento">
+                <option value="dinheiro">💵Dinheiro (5% off)</option>
+                <option value="cartão">💳Cartão</option>
+                <option value="pix">🔷Pix (10% off)</option>
+            </select>
+
+        </section>
+
+        <section class="card">
+            <h2>📜Histórico</h2>
+            <div id="historico" class="historico"></div>
+        </section>
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

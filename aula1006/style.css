@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    color: #764ba2;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.item {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.item h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.preco {
+    color: #667eea;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.carrinho-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: white;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 18px;
+    color: #764ba2;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid #ddd;
+}
+
+.acoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.acoes button {
+    flex: 1;
+}
+
+.btn-finalizar {
+    background: #51cf66;
+}
+
+.btn-limpar {
+    background: #ff6b6b;
+}
+
+.historico {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.pedido {
+    background: white;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+}

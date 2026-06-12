@@ -93,6 +93,127 @@ function renderizarClientes() {
     }
     lista.innerHTML = html;
 }
-
+// Função para renderizar estatísticas usando forEach
 function renderizarEstatisticas() {
+    const statsContainer = document.getElementById('statsContainer');
+    
+    // Calcular estatísticas
+    let totalPedidos = 0;
+    let totalClientes = 0;
+    let totalCardapio = 0;
+    let valorTotalPedidos = 0;
+    
+    // Usando forEach para calcular totais
+    pedidos.forEach(pedido => {
+        totalPedidos++;
+        valorTotalPedidos += pedido.total;
+    });
+    
+    clientes.forEach(() => totalClientes++);
+    cardapio.forEach(item => totalCardapio++);
+    
+    // Contar pedidos por status usando for...of
+    let pedidosPendentes = 0;
+    let pedidosPreparando = 0;
+    let pedidosEntregues = 0;
+    
+    for (const pedido of pedidos) {
+        switch(pedido.status) {
+            case 'pendente':
+                pedidosPendentes++;
+                break;
+            case 'preparando':
+                pedidosPreparando++;
+                break;
+            case 'entregue':
+                pedidosEntregues++;
+                break;
+        }
+    }
+    
+    const mediaPedidos = (valorTotalPedidos / totalPedidos).toFixed(2);
+    
+    const statsHtml = `
+        <div class="stat-card">
+            <div class="stat-number">${totalClientes}</div>
+            <div class="stat-label">Clientes</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">${totalPedidos}</div>
+            <div class="stat-label">Total Pedidos</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">R$ ${mediaPedidos}</div>
+            <div class="stat-label">Ticket Médio</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">${totalCardapio}</div>
+            <div class="stat-label">Itens no Cardápio</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">${pedidosPendentes}</div>
+            <div class="stat-label">Pendentes</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">${pedidosPreparando}</div>
+            <div class="stat-label">Preparando</div>
+        </div>
+    `;
+    
+    statsContainer.innerHTML = statsHtml;
+}
+
+// Função para buscar e exibir dados específicos usando loop while
+function buscarCardapioPorCategoria(categoria) {
+    let resultado = [];
+    let i = 0;
+    
+    // Usando while para filtrar itens do cardápio
+    while (i < cardapio.length) {
+        if (cardapio[i].categoria === categoria) {
+            resultado.push(cardapio[i]);
+        }
+        i++;
+    }
+    
+    if (resultado.length > 0) {
+        console.log(`Itens da categoria ${categoria}:`, resultado);
+    }
+    return resultado;
+}
+
+// Função para demonstrar renderização adicional
+function renderizarResumoPedidos() {
+    console.log("=== RESUMO DE PEDIDOS ===");
+    
+    // Usando for...of para mostrar no console
+    for (const pedido of pedidos) {
+        console.log(`Pedido #${pedido.id}: ${pedido.cliente} - Total: R$ ${pedido.total.toFixed(2)} - Status: ${pedido.status}`);
+    }
+}
+
+// Inicializar todas as renderizações
+function inicializar() {
+    renderizarCardapio();
+    renderizarPedidos();
+    renderizarClientes();
+    renderizarEstatisticas();
+    
+    // Demonstrar busca por categoria
+    buscarCardapioPorCategoria("Pizzas");
+    renderizarResumoPedidos();
+    
+    // Adicionar evento de console para demonstração
+    console.log("✅ Sistema inicializado com sucesso!");
+    console.log("🎯 Demonstração de laços de repetição:");
+    console.log("- for...of: Cards do cardápio e clientes");
+    console.log("- for tradicional: Tabela de pedidos");
+    console.log("- forEach: Estatísticas");
+    console.log("- while: Busca por categoria");
+}
+
+// Aguardar o DOM carregar completamente
+document.addEventListener('DOMContentLoaded', inicializar);
+
+
     
