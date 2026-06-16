@@ -23,9 +23,7 @@ function exibirAlunos() {
 
 alunosDiv.innerHTML = escola.Alunos.map(aluno => `
     <div class="aluno-item">
-        <strong>Nome: ${aluno.nome}</strong>
-        <strong>Idade: ${aluno.idade}</strong>
-        <strong>Curso: ${aluno.curso}</strong>
+        <strong>Nome: ${aluno.nome} Idade: ${aluno.idade} Curso: ${aluno.curso}</strong>
     </div>
 `).join('');
 
@@ -47,7 +45,7 @@ function AdicionarAluno() {
     exibirAlunos();
 }
 
-Function salvarJSON(){
-    const jsonString = JSON.stringify(escola.Alunos, null, 2);
-    localStorage.setItem('alunos', jsonString);
-}
+//Function salvarJSON(){
+    //const jsonString = JSON.stringify(escola.Alunos, null, 2);
+   // localStorage.setItem('alunos', jsonString);
+//}

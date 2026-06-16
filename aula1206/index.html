@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET e POST - Exemplos Práticos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔄 GET e POST com Fetch API</h1>
+
+        <!-- EXEMPLO 1: GET - Pegar dados -->
+        <div class="card">
+            <h2>📥 EXEMPLO 1: GET (Pegar Dados)</h2>
+            <p>Buscar usuários da API</p>
+            <button id="btnGet" class="btn-get">🔍 GET - Buscar Usuários</button>
+            <div id="statusGet" class="status"></div>
+            <ul id="listaUsuarios"></ul>
+        </div>
+
+        <!-- EXEMPLO 2: POST - Enviar dados -->
+        <div class="card">
+            <h2>📤 EXEMPLO 2: POST (Enviar Dados)</h2>
+            <p>Criar novo usuário</p>
+            <input type="text" id="nome" placeholder="Nome do usuário">
+            <input type="text" id="email" placeholder="E-mail">
+            <input type="text" id="telefone" placeholder="(11) 99999-9999">
+            <button id="btnPost" class="btn-post">📨 POST - Criar Usuário</button>
+            <div id="statusPost" class="status"></div>
+            <div id="resultadoPost"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
